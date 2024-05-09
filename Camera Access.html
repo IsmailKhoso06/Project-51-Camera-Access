@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Access</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+        }
+
+        body{
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            display: flex;
+        }
+        .camera{
+          margin: 0px 0px;
+
+        }
+        .camera video{
+            height: 100%;
+            width: 100%;
+                   }
+
+        button {
+            display: block;
+            
+            padding: 10px 20px;
+            font-size: 20px;
+            width: 300px;
+            height: 100px;
+            font-weight: 600;
+            background: none;
+            border: none;
+            background-color: green;
+            color: white;
+            text-shadow: 0 0 4px 4px #000000;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="camera">
+            <video id="video" autoplay></video>
+            <button onclick="openCamera()">Open Camera</button>
+        </div>
+    </div>
+
+    <script>
+        async function openCamera(){
+            const stream =await navigator.mediaDevices.getUserMedia({video:true})
+            video.srcObject =stream;
+        }
+    </script>
+</body>
+</html>
